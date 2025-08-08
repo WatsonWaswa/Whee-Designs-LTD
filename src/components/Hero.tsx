@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import classicPcBackground from "@/assets/classic-pc-background.jpg";
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center gradient-bg-hero relative overflow-hidden">
       {/* Classic PC background image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" 
-           style={{ backgroundImage: "url('/src/assets/classic-pc-background.jpg')" }}></div>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${classicPcBackground})` }}
+      />
       <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></div>
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
