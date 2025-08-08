@@ -6,21 +6,27 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
 
   // Close on click outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (!isMobileMenuOpen) return;
       const target = event.target as Node;
-      if (menuRef.current && !menuRef.current.contains(target)) {
+      const clickedInsideMenu = menuRef.current?.contains(target);
+      const clickedToggleButton = toggleButtonRef.current?.contains(target);
+      if (clickedInsideMenu || clickedToggleButton) {
+        return;
+      }
+      if (menuRef.current && !clickedInsideMenu) {
         setIsMobileMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    document.addEventListener('mousedown', handleClickOutside as EventListener);
+    document.addEventListener('touchstart', handleClickOutside as EventListener, { passive: true } as AddEventListenerOptions);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside as EventListener);
+      document.removeEventListener('touchstart', handleClickOutside as EventListener);
     };
   }, [isMobileMenuOpen]);
 
@@ -79,7 +85,8 @@ const Navigation = () => {
             variant="ghost"
             size="icon"
             className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            ref={toggleButtonRef}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
