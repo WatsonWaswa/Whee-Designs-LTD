@@ -75,7 +75,7 @@ const Hero = () => {
               className="border-primary/30 hover:bg-primary/10 text-lg px-6 py-4"
               asChild
             >
-              <a href="https://wa.me/254717629522" target="_blank" rel="noopener noreferrer">
+              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%20would%20like%20to%20book%20a%20service.")} target="_blank" rel="noopener noreferrer">
                 Book Service
               </a>
             </Button>

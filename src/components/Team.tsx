@@ -134,7 +134,7 @@ const Team = () => {
 
           <div className="text-center">
             <Button className="gradient-bg shadow-elegant text-lg px-8 py-6" asChild>
-              <a href="https://wa.me/254717629522" target="_blank" rel="noopener noreferrer">
+              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20work%20with%20the%20team.")} target="_blank" rel="noopener noreferrer">
                 Work With Our Team
                 <Globe className="ml-2 h-5 w-5" />
               </a>

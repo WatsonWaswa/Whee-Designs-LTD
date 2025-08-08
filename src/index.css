@@ -138,6 +138,15 @@
   body {
     @apply bg-background text-foreground;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  html, #root {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  /* Prevent sideways scroll bounce on mobile */
+  html, body {
+    overscroll-behavior-x: none;
   }
 }
 

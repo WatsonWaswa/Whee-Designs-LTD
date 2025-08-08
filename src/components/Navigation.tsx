@@ -1,10 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // Close on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!isMobileMenuOpen) return;
+      const target = event.target as Node;
+      if (menuRef.current && !menuRef.current.contains(target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +67,8 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="default" className="gradient-bg shadow-elegant" asChild>
-              <a href="https://wa.me/254717629522" target="_blank" rel="noopener noreferrer">
+              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27m%20interested%20in%20your%20services.")}
+                 target="_blank" rel="noopener noreferrer">
                 Book Service
               </a>
             </Button>
@@ -71,6 +90,7 @@ const Navigation = () => {
           className={`md:hidden absolute top-full left-0 right-0 z-[9998] border-t border-border shadow-elegant transition-all duration-500 ease-in-out
             ${isMobileMenuOpen ? 'opacity-100 translate-y-0 pointer-events-auto bg-background/95 backdrop-blur-md' : '-translate-y-8 opacity-0 pointer-events-none'}
           `}
+          ref={menuRef}
           style={{
             visibility: isMobileMenuOpen ? 'visible' : 'hidden',
           }}
@@ -87,7 +107,8 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="default" className="gradient-bg shadow-elegant w-full mt-3" asChild>
-              <a href="https://wa.me/254717629522" target="_blank" rel="noopener noreferrer">
+              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services.")}
+                 target="_blank" rel="noopener noreferrer">
                 Book Service
               </a>
             </Button>

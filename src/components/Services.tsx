@@ -107,7 +107,7 @@ const Services = () => {
           <div className="inline-flex items-center space-x-4 glass-effect rounded-full px-8 py-4">
             <span className="text-lg font-medium">Ready to start your project?</span>
             <Button className="gradient-bg shadow-elegant" asChild>
-              <a href="https://wa.me/254717629522" target="_blank" rel="noopener noreferrer">
+              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20get%20a%20quote.")} target="_blank" rel="noopener noreferrer">
                 Get a Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
