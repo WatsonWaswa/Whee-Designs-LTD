@@ -48,7 +48,7 @@ const Contact = () => {
       icon: MessageCircle,
       title: "WhatsApp",
       content: "Chat with us on WhatsApp",
-      link: encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20get%20in%20touch.")
+      link: `https://wa.me/254717629522?text=${encodeURIComponent("Welcome To whee Designs. How may 'Whee' be of service to you?")}`
     }
   ];
 
@@ -232,7 +232,7 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="gradient-bg shadow-elegant" asChild>
-                <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20schedule%20a%20consultation.")} target="_blank" rel="noopener noreferrer">
+                <a href={`https://wa.me/254717629522?text=${encodeURIComponent("Welcome To whee Designs. How may 'Whee' be of service to you?")}`} target="_blank" rel="noopener noreferrer">
                   Schedule a Consultation
                 </a>
               </Button>

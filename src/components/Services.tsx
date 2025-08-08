@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Palette, Share2, PenTool, ArrowRight } from "lucide-react";
+import { Code, Palette, Share2, PenTool } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -90,11 +90,10 @@ const Services = () => {
                     variant="ghost" 
                     className="group-hover:bg-primary/10 group-hover:text-primary transition-all duration-300 w-full"
                   >
-                    {service.title === "Web Development" && "Start Building"}
-                    {service.title === "Graphic Design" && "Create Design"}
-                    {service.title === "Social Media Management" && "Manage Social"}
-                    {service.title === "Content Writing" && "Write Content"}
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    {service.title === "Web Development" && "Development"}
+                    {service.title === "Graphic Design" && "Design"}
+                    {service.title === "Social Media Management" && "Socials"}
+                    {service.title === "Content Writing" && "Writing"}
                   </Button>
                 </CardContent>
               </Card>
@@ -107,9 +106,14 @@ const Services = () => {
           <div className="inline-flex items-center space-x-4 glass-effect rounded-full px-8 py-4">
             <span className="text-lg font-medium">Ready to start your project?</span>
             <Button className="gradient-bg shadow-elegant" asChild>
-              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20get%20a%20quote.")} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://wa.me/254717629522?text=${encodeURIComponent(
+                  "Welcome To whee Designs. How may 'Whee' be of service to you?"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Get a Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>

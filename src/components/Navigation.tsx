@@ -73,7 +73,9 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="default" className="gradient-bg shadow-elegant" asChild>
-              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27m%20interested%20in%20your%20services.")}
+              <a href={`https://wa.me/254717629522?text=${encodeURIComponent(
+                "Welcome To whee Designs. How may 'Whee' be of service to you?"
+              )}`}
                  target="_blank" rel="noopener noreferrer">
                 Book Service
               </a>
@@ -114,7 +116,9 @@ const Navigation = () => {
               </a>
             ))}
             <Button variant="default" className="gradient-bg shadow-elegant w-full mt-3" asChild>
-              <a href={encodeURI("https://wa.me/254717629522?text=Hello%20WHEE%20DESIGNS%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services.")}
+              <a href={`https://wa.me/254717629522?text=${encodeURIComponent(
+                "Welcome To whee Designs. How may 'Whee' be of service to you?"
+              )}`}
                  target="_blank" rel="noopener noreferrer">
                 Book Service
               </a>
