@@ -142,7 +142,7 @@ const Gallery = () => {
         {/* Thumbnail Navigation */}
         <div className="relative -mx-4 px-4">
           <div
-            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+            className="flex justify-start md:justify-center gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
             {galleryItems.map((item, index) => (
