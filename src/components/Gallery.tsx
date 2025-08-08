@@ -106,7 +106,7 @@ const Gallery = () => {
               </Button>
 
               {/* Category Badge */}
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 pointer-events-none">
                 <span className="gradient-bg text-white px-3 py-1 rounded-full text-sm font-medium">
                   {galleryItems[currentImage].category}
                 </span>
@@ -140,24 +140,29 @@ const Gallery = () => {
         </div>
 
         {/* Thumbnail Navigation */}
-        <div className="flex justify-center space-x-4 overflow-x-auto pb-4">
-          {galleryItems.map((item, index) => (
-            <button
-              key={item.id}
-              onClick={() => setCurrentImage(index)}
-              className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                index === currentImage 
-                  ? "border-primary shadow-elegant scale-110" 
-                  : "border-border hover:border-primary/50"
-              }`}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-contain"
-              />
-            </button>
-          ))}
+        <div className="relative -mx-4 px-4">
+          <div
+            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            {galleryItems.map((item, index) => (
+              <button
+                key={item.id}
+                onClick={() => setCurrentImage(index)}
+                className={`snap-start flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  index === currentImage
+                    ? 'border-primary shadow-elegant scale-110'
+                    : 'border-border hover:border-primary/50'
+                }`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-contain"
+                />
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Gallery Stats */}
